@@ -16,13 +16,15 @@ What is **perfect** for personal projects:
 
 ## Use Cases
 
-- **Register Patient**
+- **Register new Patient**
 - **Schedule sessions**
 - **Display next sessions**
 
+All Use Cases can only be executed after the Health Professional has authenticated with an email and password
+
 _Note: this project is a proof-of-concept. The use cases described here are not meant to represent real-life cases but for practicing software design in a fictional context_
 
-### Register Patient
+### Register new Patient
 
 For every new Patient, the Health Professional must record the Patient's **anamnesis** (Medical History). The Health Professional asks specific questions to understand the Patient's complaints to start the diagnosis and treatment plan.
 
@@ -50,7 +52,19 @@ The anamnesis (in this project) must contain the following information:
 
 ## User Experience
 
-TBD
+After authenticating, the Health Professional must see the following page:
+
+![alt text](docs/main-page.png 'Main Page')
+
+This screen covers the **Display next sessions** use case
+
+### Register new Patient
+
+![alt text](docs/new-patient.png 'New Patient')
+
+### Schedule sessions
+
+![alt text](docs/schedule-session.png 'Schedule Session')
 
 ## Technical Solution
 
