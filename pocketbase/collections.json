@@ -1,0 +1,164 @@
+[
+	{
+		"id": "systemprofiles0",
+		"name": "profiles",
+		"system": true,
+		"listRule": "userId = @request.user.id",
+		"viewRule": "userId = @request.user.id",
+		"createRule": "userId = @request.user.id",
+		"updateRule": "userId = @request.user.id",
+		"deleteRule": null,
+		"schema": [
+			{
+				"id": "pbfielduser",
+				"name": "userId",
+				"type": "user",
+				"system": true,
+				"required": true,
+				"unique": true,
+				"options": {
+					"maxSelect": 1,
+					"cascadeDelete": true
+				}
+			},
+			{
+				"id": "pbfieldname",
+				"name": "name",
+				"type": "text",
+				"system": false,
+				"required": false,
+				"unique": false,
+				"options": {
+					"min": null,
+					"max": null,
+					"pattern": ""
+				}
+			},
+			{
+				"id": "pbfieldavatar",
+				"name": "avatar",
+				"type": "file",
+				"system": false,
+				"required": false,
+				"unique": false,
+				"options": {
+					"maxSelect": 1,
+					"maxSize": 5242880,
+					"mimeTypes": ["image/jpg", "image/jpeg", "image/png", "image/svg+xml", "image/gif"],
+					"thumbs": null
+				}
+			}
+		]
+	},
+	{
+		"id": "cdi2afyrpty9buj",
+		"name": "patients",
+		"system": false,
+		"listRule": "@request.user.id = health_professional",
+		"viewRule": "@request.user.id = health_professional",
+		"createRule": "@request.user.id = health_professional",
+		"updateRule": null,
+		"deleteRule": null,
+		"schema": [
+			{
+				"id": "2y3kagoy",
+				"name": "name",
+				"type": "text",
+				"system": false,
+				"required": true,
+				"unique": false,
+				"options": {
+					"min": null,
+					"max": null,
+					"pattern": ""
+				}
+			},
+			{
+				"id": "jpj2z2xm",
+				"name": "birthdate",
+				"type": "date",
+				"system": false,
+				"required": true,
+				"unique": false,
+				"options": {
+					"min": "1900-01-01 12:00:00.000",
+					"max": ""
+				}
+			},
+			{
+				"id": "ktz1vxan",
+				"name": "medical_history",
+				"type": "select",
+				"system": false,
+				"required": false,
+				"unique": false,
+				"options": {
+					"maxSelect": 3,
+					"values": ["heart_attack", "depression", "diabetes"]
+				}
+			},
+			{
+				"id": "ulvdwcl8",
+				"name": "complaints",
+				"type": "text",
+				"system": false,
+				"required": true,
+				"unique": false,
+				"options": {
+					"min": null,
+					"max": null,
+					"pattern": ""
+				}
+			},
+			{
+				"id": "hrrhkzqs",
+				"name": "health_professional",
+				"type": "user",
+				"system": false,
+				"required": true,
+				"unique": false,
+				"options": {
+					"maxSelect": 1,
+					"cascadeDelete": false
+				}
+			}
+		]
+	},
+	{
+		"id": "etr8zelhazzj44b",
+		"name": "sessions",
+		"system": false,
+		"listRule": "@request.user.id = patient.health_professional",
+		"viewRule": "@request.user.id = patient.health_professional",
+		"createRule": "@request.user.id = patient.health_professional",
+		"updateRule": "@request.user.id = patient.health_professional",
+		"deleteRule": "@request.user.id = patient.health_professional",
+		"schema": [
+			{
+				"id": "parseach",
+				"name": "date",
+				"type": "date",
+				"system": false,
+				"required": true,
+				"unique": false,
+				"options": {
+					"min": "",
+					"max": ""
+				}
+			},
+			{
+				"id": "jkuqn3dr",
+				"name": "patient",
+				"type": "relation",
+				"system": false,
+				"required": true,
+				"unique": false,
+				"options": {
+					"maxSelect": 1,
+					"collectionId": "cdi2afyrpty9buj",
+					"cascadeDelete": false
+				}
+			}
+		]
+	}
+]
