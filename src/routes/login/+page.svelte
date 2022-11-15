@@ -3,7 +3,7 @@
 	import LoginForm from './LoginForm.svelte'
 </script>
 
-<div class="grid">
+<div class="page">
 	<LoginForm />
 	<BackgroundImage />
 </div>
@@ -12,15 +12,14 @@
 	:root {
 		--bg-color: #e8f4ea;
 	}
-	.grid {
-		display: grid;
-		place-items: center;
-		grid-template-rows: 1fr;
-		height: 100vh;
+	.page {
+		@apply grid h-screen;
 		background-color: var(--bg-color);
+	}
 
-		@media (min-width: 640px) {
-			grid-template-columns: repeat(2, 1fr);
+	@screen sm {
+		.page {
+			@apply grid-cols-2;
 		}
 	}
 </style>

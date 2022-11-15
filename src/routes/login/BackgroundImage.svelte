@@ -1,24 +1,11 @@
-<div class="img-container">
+<div class="invisible h-full w-full sm:visible">
 	<div class="img" />
 </div>
 
 <style lang="postcss">
 	.img {
+		@apply h-full border-8 border-solid bg-cover bg-center;
 		background-image: url('/login-bg.jpg');
-		height: 100%;
-		background-size: cover;
-		background-position: center;
-		border: 8px solid var(--bg-color);
-		border-radius: 8px;
-
-		@media (min-width: 640px) {
-			visibility: visible;
-		}
-	}
-
-	.img-container {
-		width: 100%;
-		height: 100%;
-		visibility: hidden;
+		border-color: var(--bg-color);
 	}
 </style>
