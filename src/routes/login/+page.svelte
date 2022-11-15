@@ -8,7 +8,7 @@
 	<BackgroundImage />
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	:root {
 		--bg-color: #e8f4ea;
 	}

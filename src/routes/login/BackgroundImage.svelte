@@ -2,9 +2,9 @@
 	<div class="img" />
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.img {
-		background-image: url('login-bg.jpg');
+		background-image: url('/login-bg.jpg');
 		height: 100%;
 		background-size: cover;
 		background-position: center;

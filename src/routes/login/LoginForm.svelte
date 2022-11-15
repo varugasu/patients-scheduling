@@ -16,13 +16,14 @@
 	</div>
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	* {
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
 			'Open Sans', 'Helvetica Neue', sans-serif;
 	}
 
 	.login {
+		@apply text-xs;
 		width: 100%;
 		height: 100%;
 		display: flex;
