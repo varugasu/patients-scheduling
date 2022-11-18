@@ -4,8 +4,7 @@
 
 <style lang="postcss">
 	.img {
-		@apply h-full border-8 border-solid bg-cover bg-center;
+		@apply h-full border-8 border-solid border-background bg-cover bg-center;
 		background-image: url('/login-bg.jpg');
-		border-color: var(--bg-color);
 	}
 </style>

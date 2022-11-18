@@ -9,12 +9,8 @@
 </div>
 
 <style lang="postcss">
-	:root {
-		--bg-color: #e8f4ea;
-	}
 	.page {
-		@apply grid h-screen;
-		background-color: var(--bg-color);
+		@apply grid h-screen bg-background;
 	}
 
 	@screen sm {

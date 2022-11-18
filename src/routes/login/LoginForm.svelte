@@ -21,12 +21,10 @@
 		@apply font-sans;
 	}
 	.header {
-		@apply pb-2 text-center text-2xl font-black tracking-wider;
-		color: #348341;
+		@apply pb-2 text-center text-2xl font-black tracking-wider text-primary;
 
 		> span {
-			@apply block text-base font-normal tracking-normal;
-			color: #617c66;
+			@apply block text-base font-normal tracking-normal text-primary-dark;
 		}
 	}
 
@@ -34,12 +32,12 @@
 		@apply flex flex-col gap-2;
 
 		:focus {
-			box-shadow: inset 0 0 0 2px #348341;
+			box-shadow: inset 0 0 0 2px theme(colors.primary.DEFAULT);
 			outline: none !important;
 		}
 
 		> label {
-			@apply font-bold;
+			@apply font-bold text-primary-dark;
 		}
 
 		> input {
@@ -48,8 +46,7 @@
 	}
 
 	button {
-		@apply rounded-2xl p-4 font-bold text-white;
-		background-color: #367d43;
+		@apply rounded-2xl bg-primary p-4 font-bold text-white;
 	}
 
 	@screen sm {
