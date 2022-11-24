@@ -1,64 +1,9 @@
 [
 	{
-		"id": "systemprofiles0",
-		"name": "profiles",
-		"system": true,
-		"listRule": "userId = @request.user.id",
-		"viewRule": "userId = @request.user.id",
-		"createRule": "userId = @request.user.id",
-		"updateRule": "userId = @request.user.id",
-		"deleteRule": null,
-		"schema": [
-			{
-				"id": "pbfielduser",
-				"name": "userId",
-				"type": "user",
-				"system": true,
-				"required": true,
-				"unique": true,
-				"options": {
-					"maxSelect": 1,
-					"cascadeDelete": true
-				}
-			},
-			{
-				"id": "pbfieldname",
-				"name": "name",
-				"type": "text",
-				"system": false,
-				"required": false,
-				"unique": false,
-				"options": {
-					"min": null,
-					"max": null,
-					"pattern": ""
-				}
-			},
-			{
-				"id": "pbfieldavatar",
-				"name": "avatar",
-				"type": "file",
-				"system": false,
-				"required": false,
-				"unique": false,
-				"options": {
-					"maxSelect": 1,
-					"maxSize": 5242880,
-					"mimeTypes": ["image/jpg", "image/jpeg", "image/png", "image/svg+xml", "image/gif"],
-					"thumbs": null
-				}
-			}
-		]
-	},
-	{
 		"id": "cdi2afyrpty9buj",
 		"name": "patients",
+		"type": "base",
 		"system": false,
-		"listRule": "@request.user.id = health_professional",
-		"viewRule": "@request.user.id = health_professional",
-		"createRule": "@request.user.id = health_professional",
-		"updateRule": null,
-		"deleteRule": null,
 		"schema": [
 			{
 				"id": "2y3kagoy",
@@ -81,7 +26,7 @@
 				"required": true,
 				"unique": false,
 				"options": {
-					"min": "1900-01-01 12:00:00.000",
+					"min": "1900-01-01 12:00:00.000Z",
 					"max": ""
 				}
 			},
@@ -113,26 +58,29 @@
 			{
 				"id": "hrrhkzqs",
 				"name": "health_professional",
-				"type": "user",
+				"type": "relation",
 				"system": false,
 				"required": true,
 				"unique": false,
 				"options": {
 					"maxSelect": 1,
+					"collectionId": "systemprofiles0",
 					"cascadeDelete": false
 				}
 			}
-		]
+		],
+		"listRule": "@request.auth.id = health_professional",
+		"viewRule": "@request.auth.id = health_professional",
+		"createRule": "@request.auth.id = health_professional",
+		"updateRule": null,
+		"deleteRule": null,
+		"options": {}
 	},
 	{
 		"id": "etr8zelhazzj44b",
 		"name": "sessions",
+		"type": "base",
 		"system": false,
-		"listRule": "@request.user.id = patient.health_professional",
-		"viewRule": "@request.user.id = patient.health_professional",
-		"createRule": "@request.user.id = patient.health_professional",
-		"updateRule": "@request.user.id = patient.health_professional",
-		"deleteRule": "@request.user.id = patient.health_professional",
 		"schema": [
 			{
 				"id": "parseach",
@@ -159,6 +107,62 @@
 					"cascadeDelete": false
 				}
 			}
-		]
+		],
+		"listRule": "@request.auth.id = patient.health_professional",
+		"viewRule": "@request.auth.id = patient.health_professional",
+		"createRule": "@request.auth.id = patient.health_professional",
+		"updateRule": "@request.auth.id = patient.health_professional",
+		"deleteRule": "@request.auth.id = patient.health_professional",
+		"options": {}
+	},
+	{
+		"id": "systemprofiles0",
+		"name": "users",
+		"type": "auth",
+		"system": false,
+		"schema": [
+			{
+				"id": "pbfieldname",
+				"name": "name",
+				"type": "text",
+				"system": false,
+				"required": false,
+				"unique": false,
+				"options": {
+					"min": null,
+					"max": null,
+					"pattern": ""
+				}
+			},
+			{
+				"id": "pbfieldavatar",
+				"name": "avatar",
+				"type": "file",
+				"system": false,
+				"required": false,
+				"unique": false,
+				"options": {
+					"maxSelect": 1,
+					"maxSize": 5242880,
+					"mimeTypes": ["image/jpg", "image/jpeg", "image/png", "image/svg+xml", "image/gif"],
+					"thumbs": null
+				}
+			}
+		],
+		"listRule": "id = @request.auth.id",
+		"viewRule": "id = @request.auth.id",
+		"createRule": "",
+		"updateRule": "id = @request.auth.id",
+		"deleteRule": null,
+		"options": {
+			"allowEmailAuth": true,
+			"allowOAuth2Auth": true,
+			"allowUsernameAuth": false,
+			"exceptEmailDomains": null,
+			"manageRule": null,
+			"minPasswordLength": 8,
+			"onlyEmailDomains": null,
+			"requireEmail": true
+		}
 	}
 ]

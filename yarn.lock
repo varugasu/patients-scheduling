@@ -1532,6 +1532,11 @@ pify@^2.3.0:
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
   integrity sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==
 
+pocketbase@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/pocketbase/-/pocketbase-0.8.0.tgz#f2c8b1062169c183c16fbc48cbe31e93d9e4bb20"
+  integrity sha512-LMuV46YcuG4bDZ1DNeUkvbaS5MWLZ1gpmccn6rYIg50n1bQ/BZJ9ip6SMJqo7xRGkPSL4kk1RP/zCkiG6g37Lg==
+
 postcss-import@^14.1.0:
   version "14.1.0"
   resolved "https://registry.yarnpkg.com/postcss-import/-/postcss-import-14.1.0.tgz#a7333ffe32f0b8795303ee9e40215dac922781f0"

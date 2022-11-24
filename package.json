@@ -38,6 +38,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"pocketbase": "^0.8.0",
 		"sass": "^1.56.1"
 	}
 }
