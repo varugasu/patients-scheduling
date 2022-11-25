@@ -1,21 +1,7 @@
-import type { Actions, RequestEvent, Action } from './$types'
+import type { Actions, RequestEvent } from './$types'
 import { pb } from '$lib/server/pocketbase'
 import { ClientResponseError } from 'pocketbase'
-import { invalid } from '@sveltejs/kit'
-
-const handleLoginErrors = (target: Action) => {
-	return async (event: RequestEvent) => {
-		try {
-			return await target(event)
-		} catch (error) {
-			if (error instanceof ClientResponseError) {
-				if (error.status == 400) return invalid(400, { error: 'Invalid email or password' })
-			}
-
-			return invalid(500, { error: 'Something went wrong' })
-		}
-	}
-}
+import { invalid, redirect } from '@sveltejs/kit'
 
 const login = async ({ request, cookies }: RequestEvent) => {
 	const data = await request.formData()
@@ -29,10 +15,19 @@ const login = async ({ request, cookies }: RequestEvent) => {
 		return invalid(400)
 	}
 
-	const { token } = await pb.collection('users').authWithPassword(email, password)
-	cookies.set('token', token)
+	try {
+		const { token } = await pb.collection('users').authWithPassword(email, password)
+		cookies.set('token', token)
+	} catch (error) {
+		if (error instanceof ClientResponseError) {
+			if (error.status == 400) return invalid(400, { error: 'Invalid email or password' })
+		}
+		return invalid(500, { error: 'Something went wrong' })
+	}
+
+	throw redirect(307, '/')
 }
 
 export const actions: Actions = {
-	default: handleLoginErrors(login)
+	default: login
 }

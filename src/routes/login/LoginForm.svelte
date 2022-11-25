@@ -1,19 +1,28 @@
+<script lang="ts">
+	import type { ActionData } from './$types'
+
+	export let form: ActionData
+</script>
+
 <div class="flex h-full w-full">
-	<div class="ml-auto mr-auto flex w-2/3 flex-col gap-4 pt-40">
+	<form method="POST" action="/login" class="ml-auto mr-auto flex w-2/3 flex-col gap-4 pt-40">
 		<div class="header">
 			Welcome Back
 			<span>Enter your credentials</span>
 		</div>
+		{#if form?.error}
+			<div class="font-bold text-red-600">{form?.error}</div>
+		{/if}
 		<div class="input">
 			<label for="email"> Email </label>
-			<input id="email" type="email" />
+			<input id="email" name="email" type="email" />
 		</div>
 		<div class="input">
 			<label for="password">Password</label>
-			<input id="password" type="password" />
+			<input id="password" name="password" type="password" />
 		</div>
 		<button>Sign In</button>
-	</div>
+	</form>
 </div>
 
 <style lang="postcss">

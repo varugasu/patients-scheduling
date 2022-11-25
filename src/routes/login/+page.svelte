@@ -1,10 +1,14 @@
 <script lang="ts">
 	import BackgroundImage from './BackgroundImage.svelte'
 	import LoginForm from './LoginForm.svelte'
+
+	import type { ActionData } from './$types'
+
+	export let form: ActionData
 </script>
 
 <div class="page">
-	<LoginForm />
+	<LoginForm {form} />
 	<BackgroundImage />
 </div>
 
